@@ -4,6 +4,7 @@
   "devDependencies": {
     "blanket": "^1.1.7",
     "glob": "^5.0.15",
+    "istanbul": "^0.4.0",
     "mocha": "^2.3.3",
     "mocha-multi": "^0.7.2",
     "should": "^7.1.1"
@@ -13,7 +14,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "test": "multi='spec=- html-cov=coverage.html' ./node_modules/mocha/bin/mocha -r blanket --reporter mocha-multi"
+    "test": "multi='spec=- html-cov=coverage.html' ./node_modules/mocha/bin/mocha -r blanket --reporter mocha-multi",
+    "test-travis": "./node_modules/istanbul/lib/cli.js check-coverage --statements 100 --branches 100 --lines 100 --functions 100 ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
   },
   "config": {
     "blanket": {

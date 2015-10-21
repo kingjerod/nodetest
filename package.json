@@ -1,0 +1,24 @@
+{
+  "name": "node-test",
+  "version": "0.0.1",
+  "devDependencies": {
+    "blanket": "^1.1.7",
+    "glob": "^5.0.15",
+    "mocha": "^2.3.3",
+    "mocha-multi": "^0.7.2",
+    "should": "^7.1.1"
+  },
+  "dependencies": {
+    "async": "^1.4.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "multi='spec=- html-cov=coverage.html' ./node_modules/mocha/bin/mocha -r blanket --reporter mocha-multi"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "src",
+      "data-cover-never": "node_modules"
+    }
+  }
+}
